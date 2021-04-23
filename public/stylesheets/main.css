@@ -1,39 +1,56 @@
+html {
+  font-size: 16px;
+}
+
 body {
-  text-align: center;
+  text-align: left;
+  font-size: 100%;
 }
 
 .btn-primary {
-  background: #532F8C;
-  border-color: #532F8C;
+  background: #43853d;
+  border-color: #43853d;
 }
 
+.btn-primary:active,
 .btn-primary:hover,
 .btn-primary:focus {
-  background: #7646c1;
+  background: #10520A;
+  border-color: #10520A;
 }
 
 .jumbotron {
-  background: #532F8C;
-  color: white;
-  padding-bottom: 80px;
+  background: #333;
+  color: #FFF;
+  padding: 1rem 0 3rem 0;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-.jumbotron .btn-primary {
-  background: #845ac7;
-  border-color: #845ac7;
-}
-
-.jumbotron .btn-primary:hover,
-.jumbotron .btn-primary:focus {
-  background: #7646c1;
+.jumbotron h1 {
+  margin-top: 0;
 }
 
 .jumbotron p {
-  color: #d9ccee;
+  color: #CCC;
   max-width: 75%;
-  margin: 1em auto 2em;
+  margin: 1rem auto 2rem;
 }
 
-#example-buttons {
-  margin-bottom: 2em;
+#demo-content {
+  margin-bottom: 4rem;
 }
+
+#example-buttons button {
+  margin-bottom: 1rem;
+}
+
+#h2 {
+  margin-top: 0;
+}
+
+#results-container ol {
+  padding-left: 1rem;
+}
+
+

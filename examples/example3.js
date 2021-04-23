@@ -3,13 +3,13 @@ const sendResponse = require('./sendResponse')
 const example3 = (req, res) => {
   const messages = [];
 
-  const foo = () => messages.push('foo')
-  const bar = () => messages.push('bar')
-  const baz = () => messages.push('baz')
+  const first = () => messages.push('first')
+  const second = () => messages.push('second')
+  const third = () => messages.push('third')
 
-  foo()
-  setTimeout(bar, 0)
-  setImmediate(baz)
+  first()
+  setTimeout(second, 0)
+  setImmediate(third)
 
   sendResponse({
     demoName: 'Example 3',
@@ -22,6 +22,6 @@ const example3 = (req, res) => {
 module.exports = example3
 
 // Runs in this order:
-//   foo
-//   baz
-//   bar
+//   first
+//   third
+//   second

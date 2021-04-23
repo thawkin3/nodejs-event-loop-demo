@@ -1,28 +1,48 @@
-<html>
+<html lang="en">
   <head>
     <title>Node.js Event Loop Demo</title>
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="jumbotron text-center">
+    <header class="jumbotron text-center">
       <div class="container">
-        <img src="/lang-logo.png">
+        <img src="/lang-logo.png" alt="Node.js logo">
         <h1>Node.js Event Loop Demo</h1>
         <p>This is a demo app for better understanding the Node.js event loop.<br/>Run an example by clicking one of the buttons below and observing the output.</p>
         <a class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started on Heroku with Node.js</a>
         <a class="btn btn-lg btn-primary" href="https://github.com/thawkin3/nodejs-event-loop-demo"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
       </div>
-    </div>
+    </header>
     <main>
-      <div class="container">
-        <div class="row" id="example-buttons">
-            <button type="button" id="example1Button" class="btn btn-primary">Run Example 1</button>
-            <button type="button" id="example2Button" class="btn btn-primary">Run Example 2</button>
-            <button type="button" id="example3Button" class="btn btn-primary">Run Example 3</button>
-        </div>
+      <div class="container" id="demo-content">
         <div class="row">
-          <div id="results-container"></div>
+          <div class="col-sm-4" id="example-buttons">
+            <h2>Choose an example</h2>
+            <div>
+              <button type="button" id="example1Button" class="btn btn-primary">Run Example 1</button>
+            </div>
+            <div>
+              <button type="button" id="example2Button" class="btn btn-primary">Run Example 2</button>
+            </div>
+            <div>
+              <button type="button" id="example3Button" class="btn btn-primary">Run Example 3</button>
+            </div>
+            <div>
+              <button type="button" id="example4Button" class="btn btn-primary">Run Example 4</button>
+            </div>
+            <div>
+              <button type="button" id="example5Button" class="btn btn-primary">Run Example 5</button>
+            </div>
+          </div>
+          <div class="col-sm-4" id="example-code">
+            <h2 id="code-for-example-name">Code for...</h2>
+            <div id="code-container"></div>
+          </div>
+          <div class="col-sm-4" id="results-container">
+            <h2 id="output-for-example-name">Output for...</h2>
+            <div id="messages-container"></div>
+          </div>
         </div>
       </div>
     </main>
