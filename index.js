@@ -1,5 +1,10 @@
 const express = require('express')
 const path = require('path')
+
+const example1 = require('./examples/example1');
+const example2 = require('./examples/example2');
+const example3 = require('./examples/example3');
+
 const PORT = process.env.PORT || 5000
 
 express()
@@ -7,97 +12,7 @@ express()
   .get('/', (req, res) => {
     res.sendFile('index.html', { root: 'public' })
   })
-  // Runs in this order:
-  //   foo
-  //   bar
-  //   baz
-  .get('/example1', (req, res) => {
-    const messages = [];
-
-    const foo = () => messages.push('foo')
-    const bar = () => messages.push('bar')
-    const baz = () => messages.push('baz')
-
-    foo()
-    bar()
-    baz()
-
-    // Really hacky way to create a poll waiting for all the
-    // messages to be sent without introducing more promises
-    // or callbacks directly into the examples.
-    const sendResponse = () => {
-      if (messages.length === 3) {
-        res.json({
-          demo: 'Example 1',
-          messages,
-        })
-      } else {
-        setTimeout(sendResponse, 250)
-      }
-    }
-
-    sendResponse()
-  })
-  // Runs in this order:
-  //   foo
-  //   baz
-  //   bar
-  .get('/example2', (req, res) => {
-    const messages = [];
-
-    const foo = () => messages.push('foo')
-    const bar = () => messages.push('bar')
-    const baz = () => messages.push('baz')
-
-    foo()
-    setTimeout(bar, 0)
-    baz()
-
-    // Really hacky way to create a poll waiting for all the
-    // messages to be sent without introducing more promises
-    // or callbacks directly into the examples.
-    const sendResponse = () => {
-      if (messages.length === 3) {
-        res.json({
-          demo: 'Example 2',
-          messages,
-        })
-      } else {
-        setTimeout(sendResponse, 250)
-      }
-    }
-
-    sendResponse()
-  })
-  // Runs in this order:
-  //   foo
-  //   baz
-  //   bar
-  .get('/example3', (req, res) => {
-    const messages = [];
-
-    const foo = () => messages.push('foo')
-    const bar = () => messages.push('bar')
-    const baz = () => messages.push('baz')
-
-    foo()
-    setTimeout(bar, 0)
-    setImmediate(baz)
-
-    // Really hacky way to create a poll waiting for all the
-    // messages to be sent without introducing more promises
-    // or callbacks directly into the examples.
-    const sendResponse = () => {
-      if (messages.length === 3) {
-        res.json({
-          demo: 'Example 3',
-          messages,
-        })
-      } else {
-        setTimeout(sendResponse, 250)
-      }
-    }
-
-    sendResponse()
-  })
+  .get('/example1', example1)
+  .get('/example2', example2)
+  .get('/example3', example3)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
